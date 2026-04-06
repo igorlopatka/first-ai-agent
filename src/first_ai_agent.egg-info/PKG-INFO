@@ -1,0 +1,105 @@
+Metadata-Version: 2.4
+Name: first-ai-agent
+Version: 0.1.0
+Summary: A minimal AI agent starter using Agno, Arize Phoenix, Langfuse, Ragas, and Pydantic.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: agno
+Requires-Dist: arize-phoenix
+Requires-Dist: langfuse
+Requires-Dist: openinference-instrumentation-agno
+Requires-Dist: openinference-instrumentation-openai
+Requires-Dist: opentelemetry-exporter-otlp
+Requires-Dist: openai
+Requires-Dist: pydantic>=2.7
+Requires-Dist: pydantic-settings>=2.2
+Requires-Dist: ragas
+Requires-Dist: rich
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+
+# First AI Agent
+
+A small Python starter project for building an AI agent with:
+
+- Agno
+- Arize Phoenix
+- Langfuse
+- Ragas
+- Pydantic
+
+## What this project includes
+
+- A runnable Agno-based agent with typed input/output models.
+- Centralized configuration through Pydantic settings.
+- Optional tracing for Arize Phoenix and Langfuse.
+- A small Ragas evaluation script to score the agent on sample prompts.
+
+## Quick start
+
+1. Create and activate a virtual environment.
+2. Install dependencies:
+
+```bash
+pip install -e .
+```
+
+3. Copy the environment template:
+
+```bash
+cp .env.example .env
+```
+
+4. Fill in at least:
+
+- `OPENAI_API_KEY`
+
+5. Run the agent:
+
+```bash
+python -m first_ai_agent.main "Plan a weekend trip to Krakow"
+```
+
+6. Run the evaluation script:
+
+```bash
+python -m first_ai_agent.evaluate
+```
+
+## Environment variables
+
+### Core
+
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
+
+### Phoenix
+
+- `PHOENIX_COLLECTOR_ENDPOINT`
+- `PHOENIX_PROJECT_NAME`
+
+### Langfuse
+
+- `LANGFUSE_PUBLIC_KEY`
+- `LANGFUSE_SECRET_KEY`
+- `LANGFUSE_HOST`
+
+Tracing is optional. If Phoenix or Langfuse variables are missing, the app will skip that integration and continue.
+
+## Project structure
+
+```text
+src/first_ai_agent/
+  agent.py
+  config.py
+  evaluate.py
+  main.py
+  observability.py
+  schemas.py
+```
+
+## Notes
+
+- This scaffold assumes you meant `Agno` as the agent framework.
+- Some observability packages evolve quickly, so the setup code is written defensively and degrades gracefully when an integration is unavailable.

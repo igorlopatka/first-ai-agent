@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.19",
+  "version": "0.1.0",
+  "id": "local-dev-app-id",
+  "developer": {
+    "name": "First AI Agent",
+    "websiteUrl": "https://example.com",
+    "privacyUrl": "https://example.com/privacy",
+    "termsOfUseUrl": "https://example.com/terms"
+  },
+  "name": {
+    "short": "Workplace Guide",
+    "full": "Workplace Guide for Microsoft 365 Copilot"
+  },
+  "description": {
+    "short": "Przyjazny agent do streszczania, wyjasniania i planowania.",
+    "full": "Custom agent przygotowany do pilotażu w Microsoft 365 Copilot dla nietechnicznych użytkowników."
+  },
+  "accentColor": "#0F6CBD",
+  "copilotAgents": [
+    {
+      "id": "local-dev-app-id",
+      "type": "custom-engine",
+      "conversationStarts": [
+        {
+          "title": "Stresc ten tekst w 5 punktach"
+        },
+        {
+          "title": "Wyjasnij to prostym jezykiem"
+        },
+        {
+          "title": "Przygotuj plan dzialania krok po kroku"
+        }
+      ]
+    }
+  ],
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "validDomains": [
+    "localhost"
+  ]
+}

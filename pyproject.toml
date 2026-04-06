@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "first-ai-agent"
+version = "0.2.0"
+description = "Copilot-first AI agent backend using Agno, Arize Phoenix, Langfuse, Ragas, and Pydantic."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "agno",
+  "arize-phoenix",
+  "fastapi",
+  "langfuse",
+  "openinference-instrumentation-agno",
+  "openinference-instrumentation-openai",
+  "opentelemetry-exporter-otlp",
+  "openai",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "ragas",
+  "rich",
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "ruff",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

@@ -1,0 +1,15 @@
+agno
+arize-phoenix
+langfuse
+openinference-instrumentation-agno
+openinference-instrumentation-openai
+opentelemetry-exporter-otlp
+openai
+pydantic>=2.7
+pydantic-settings>=2.2
+ragas
+rich
+
+[dev]
+pytest
+ruff
